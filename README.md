@@ -8,6 +8,11 @@
 
 `pylyzer` is a static code analyzer / language server for Python, written in Rust.
 
+## Notice
+
+This is a fork of [pylyzer](https://github.com/mtshiba/pylyzer) which has been stripped of language server functionality
+for the purpose of targetting WebAssembly.
+
 ## Installation
 
 ### cargo (rust package manager)
@@ -31,7 +36,7 @@ Make sure that `cargo/rustc` is up-to-date, as pylyzer may be written with the l
 pip install pylyzer
 ```
 
-__If installed this way, you also need to [install Erg](https://github.com/mtshiba/ergup).__
+**If installed this way, you also need to [install Erg](https://github.com/mtshiba/ergup).**
 
 ```bash
 curl -L https://github.com/mtshiba/ergup/raw/main/ergup.py | python3
@@ -41,19 +46,19 @@ curl -L https://github.com/mtshiba/ergup/raw/main/ergup.py | python3
 
 ## What is the advantage over pylint, pyright, pytype, etc.?
 
-* Performance 🌟
+- Performance 🌟
 
-On average, pylyzer can inspect Python scripts more than __100 times faster__ than pytype and pyright [<sup id="f1">1</sup>](#1). This is largely due to the fact that pylyzer is implemented in Rust.
+On average, pylyzer can inspect Python scripts more than **100 times faster** than pytype and pyright [<sup id="f1">1</sup>](#1). This is largely due to the fact that pylyzer is implemented in Rust.
 
 ![performance](https://raw.githubusercontent.com/mtshiba/pylyzer/main/images/performance.png)
 
-* Detailed analysis 🩺
+- Detailed analysis 🩺
 
 pylyzer can do more than the type checking. For example, it can detect out-of-bounds accesses to lists and accesses to nonexistent keys in dicts.
 
 ![analysis](https://raw.githubusercontent.com/mtshiba/pylyzer/main/images/analysis.png)
 
-* Reports readability 📖
+- Reports readability 📖
 
 While pytype/pyright's error reports are illegible, pylyzer shows where the error occurred and provides clear error messages.
 
@@ -65,7 +70,7 @@ While pytype/pyright's error reports are illegible, pylyzer shows where the erro
 
 ![pyright_report](https://raw.githubusercontent.com/mtshiba/pylyzer/main/images/pyright_report.png)
 
-* Rich LSP support 📝
+- Rich LSP support 📝
 
 pylyzer as a language server supports various features, such as completion and renaming (The language server is an adaptation of the Erg Language Server (ELS). For more information on the implemented features, please see [here](https://github.com/erg-lang/erg/tree/main/crates/els#readme)).
 
@@ -95,52 +100,52 @@ pylyzer converts Python ASTs to Erg ASTs and passes them to Erg's type checker. 
 
 ## Limitations
 
-* pylyzer's type inspector only assumes (potentially) statically typed code, so you cannot check any code uses reflections, such as `exec`, `setattr`, etc.
+- pylyzer's type inspector only assumes (potentially) statically typed code, so you cannot check any code uses reflections, such as `exec`, `setattr`, etc.
 
-* pylyzer (= Erg's type system) has its own type declarations for the Python standard APIs. Typing of all APIs is not complete and may result in an error that such an API does not exist.
+- pylyzer (= Erg's type system) has its own type declarations for the Python standard APIs. Typing of all APIs is not complete and may result in an error that such an API does not exist.
 
-* Since pylyzer's type checking is conservative, you may encounter many (possibly false positive) errors. We are working on fixing this, but if you are concerned about editor errors, please turn off the diagnostics feature.
+- Since pylyzer's type checking is conservative, you may encounter many (possibly false positive) errors. We are working on fixing this, but if you are concerned about editor errors, please turn off the diagnostics feature.
 
 ## TODOs
 
-* [x] type checking
-  * [x] variable
-  * [x] operator
-  * [x] function/method
-  * [x] class
-* [x] type inference
-  * [x] variable
-  * [x] operator
-  * [x] function/method
-  * [x] class
-* [x] builtin modules resolving (partially)
-* [x] local scripts resolving
-* [ ] local packages resolving
-* [x] collection types
-  * [x] `list`
-  * [x] `dict`
-  * [x] `tuple`
-* [ ] `typing`
-  * [x] `Union`
-  * [x] `Optional`
-  * [x] `Literal`
-  * [x] `Callable`
-  * [ ] `TypedDict`
-  * [ ] type variable (`TypeVar`, `Generic`)
-  * [ ] `Protocol`
-  * [ ] `Final`
-  * [ ] `Annotated`
-  * [ ] `TypeAlias`
-  * [ ] type guard (`TypeGuard`)
-  * [ ] others
-* `collections.abc`
-  * [x] `Iterable`
-  * [x] `Iterator`
-  * [x] `Mapping`
-  * [x] `Sequence`
-  * [ ] others
-* [x] type assertion (`typing.cast`)
-* [x] type narrowing (`is`, `isinstance`)
+- [x] type checking
+  - [x] variable
+  - [x] operator
+  - [x] function/method
+  - [x] class
+- [x] type inference
+  - [x] variable
+  - [x] operator
+  - [x] function/method
+  - [x] class
+- [x] builtin modules resolving (partially)
+- [x] local scripts resolving
+- [ ] local packages resolving
+- [x] collection types
+  - [x] `list`
+  - [x] `dict`
+  - [x] `tuple`
+- [ ] `typing`
+  - [x] `Union`
+  - [x] `Optional`
+  - [x] `Literal`
+  - [x] `Callable`
+  - [ ] `TypedDict`
+  - [ ] type variable (`TypeVar`, `Generic`)
+  - [ ] `Protocol`
+  - [ ] `Final`
+  - [ ] `Annotated`
+  - [ ] `TypeAlias`
+  - [ ] type guard (`TypeGuard`)
+  - [ ] others
+- `collections.abc`
+  - [x] `Iterable`
+  - [x] `Iterator`
+  - [x] `Mapping`
+  - [x] `Sequence`
+  - [ ] others
+- [x] type assertion (`typing.cast`)
+- [x] type narrowing (`is`, `isinstance`)
 
 ---
 
