@@ -164,8 +164,8 @@ dependencies = [
 
 [[package]]
 name = "erg_common"
-version = "0.6.16-nightly.7"
-source = "git+https://github.com/erg-lang/erg?branch=main#953b5806b599ae5061c1d29bb78b88cd758c9d3c"
+version = "0.6.16"
+source = "git+https://github.com/erg-lang/erg?tag=v0.6.16#e73e404083a824614e3a01f20e41ba537bb22db2"
 dependencies = [
  "backtrace-on-stack-overflow",
  "parking_lot",
@@ -174,8 +174,8 @@ dependencies = [
 
 [[package]]
 name = "erg_compiler"
-version = "0.6.16-nightly.7"
-source = "git+https://github.com/erg-lang/erg?branch=main#953b5806b599ae5061c1d29bb78b88cd758c9d3c"
+version = "0.6.16"
+source = "git+https://github.com/erg-lang/erg?tag=v0.6.16#e73e404083a824614e3a01f20e41ba537bb22db2"
 dependencies = [
  "erg_common",
  "erg_parser",
@@ -183,8 +183,8 @@ dependencies = [
 
 [[package]]
 name = "erg_parser"
-version = "0.6.16-nightly.7"
-source = "git+https://github.com/erg-lang/erg?branch=main#953b5806b599ae5061c1d29bb78b88cd758c9d3c"
+version = "0.6.16"
+source = "git+https://github.com/erg-lang/erg?tag=v0.6.16#e73e404083a824614e3a01f20e41ba537bb22db2"
 dependencies = [
  "erg_common",
  "unicode-xid",
@@ -698,9 +698,9 @@ checksum = "fe232bdf6be8c8de797b22184ee71118d63780ea42ac85b61d1baa6d3b782ae9"
 
 [[package]]
 name = "scopeguard"
-version = "1.1.0"
+version = "1.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d29ab0c6d3fc0ee92fe66e2d99f700eab17a8d57d1c1d3b748380fb20baa78cd"
+checksum = "94143f37725109f92c262ed2cf5e59bce7498c01bcc1502d7b9afe439a4e9f49"
 
 [[package]]
 name = "semver"
